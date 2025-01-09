@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-func Translate(sourceLang, destinationtLang, text string) (string, error) {
+func Translate(sourceLang, destinationLang, text string) (string, error) {
 	text = strings.Replace(text, " ", "+", -1)
 
-	url := fmt.Sprintf("https://ftapi.pythonanywhere.com/translate?sl=%s&dl=%s&text=%s", sourceLang, destinationtLang, text)
+	url := fmt.Sprintf("https://ftapi.pythonanywhere.com/translate?sl=%s&dl=%s&text=%s", sourceLang, destinationLang, text)
 
 	res, err := http.Get(url)
 	if err != nil {
