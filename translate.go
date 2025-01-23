@@ -24,8 +24,8 @@ func Translate(sourceLang, destinationLang, text string) (string, error) {
 		return "", err
 	}
 
-	var resData translationApiResponse
+	resData := make(map[string]any)
 	json.Unmarshal(resDataBytes, &resData)
 
-	return resData.DestinationText, nil
+	return resData["destination-text"].(string), nil
 }
